@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Product {
 
-    private int code;
+    private final int code;
     private String name;
     private String description;
     private BigDecimal price;
