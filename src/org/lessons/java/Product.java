@@ -38,4 +38,20 @@ public class Product {
     public BigDecimal getIva() {
         return iva;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setIva(BigDecimal iva) {
+        this.iva = iva;
+    }
 }
