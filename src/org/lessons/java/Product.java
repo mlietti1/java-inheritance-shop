@@ -1,6 +1,8 @@
 package org.lessons.java;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Random;
 
 public class Product {
 
@@ -11,8 +13,13 @@ public class Product {
 
     private BigDecimal iva;
 
-    public Product( String name, String description, BigDecimal price, BigDecimal iva) {
+    public Product() {
+        code = generateCode();
+    }
 
+    public Product(String name, String description, BigDecimal price, BigDecimal iva) {
+
+        code = generateCode();
         this.name = name;
         this.description = description;
         this.price = price;
@@ -54,4 +61,15 @@ public class Product {
     public void setIva(BigDecimal iva) {
         this.iva = iva;
     }
+
+    private int generateCode(){
+        Random random = new Random();
+        return random.nextInt(1, 10000);
+    }
+
+    public BigDecimal getPriceWithIva(){
+        BigDecimal ivaOnPrice = price.multiply(iva);
+        return  price.add(ivaOnPrice).setScale(2, RoundingMode.HALF_EVEN);
+    }
+
 }
