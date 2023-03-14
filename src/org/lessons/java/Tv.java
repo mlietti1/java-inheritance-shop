@@ -7,10 +7,6 @@ public class Tv extends Product {
     private int size;
     private boolean smart;
 
-    public Tv() {
-
-    }
-
     public Tv(String name, String description, BigDecimal price, BigDecimal iva, int size, boolean smart) {
         super(name, description, price, iva);
         this.size = size;
