@@ -7,9 +7,6 @@ public class Headphones extends Product {
     private String color;
     private boolean wireless;
 
-    public Headphones() {
-    }
-
     public Headphones(String name, String description, BigDecimal price, BigDecimal iva, String color, boolean wireless) {
         super(name, description, price, iva);
         this.color = color;
