@@ -1,7 +1,6 @@
 package org.lessons.java;
 
 import java.math.BigDecimal;
-import java.util.Random;
 
 public class Smartphone extends Product{
 
