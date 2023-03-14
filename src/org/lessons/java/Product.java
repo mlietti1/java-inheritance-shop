@@ -72,4 +72,27 @@ public class Product {
         return  price.add(ivaOnPrice).setScale(2, RoundingMode.HALF_EVEN);
     }
 
+    public BigDecimal getDiscountedPrice(boolean withIva){
+        BigDecimal priceToReduce = withIva ? getPriceWithIva() : price;
+        return priceToReduce.subtract(priceToReduce.multiply(new BigDecimal("0.02")));
+    }
+
+    public String getFormattedCode(){
+        String codeString = String.valueOf(code);
+        while(codeString.length() < 8) {
+            codeString = "0" + codeString;
+        }
+        return codeString;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "code=" + getFormattedCode() +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price + '\'' +
+                ", iva=" + iva + '\'' +
+                ", final price=" + getPriceWithIva();
+    }
 }

@@ -32,4 +32,23 @@ public class Tv extends Product {
     public void setSmart(boolean smart) {
         this.smart = smart;
     }
+
+
+    @Override
+    public BigDecimal getDiscountedPrice(boolean withIva) {
+        BigDecimal priceToReduce = withIva ? getPriceWithIva() : getPrice();
+        if(!smart){
+            return priceToReduce.subtract(priceToReduce.multiply(new BigDecimal("0.1")));
+        }
+        return super.getDiscountedPrice(withIva);
+    }
+
+    @Override
+    public String toString() {
+        return "Tv{" +
+                super.toString() + " " + '\'' +
+                "size=" + size + '\'' +
+                ", smart=" + smart +
+                '}';
+    }
 }
